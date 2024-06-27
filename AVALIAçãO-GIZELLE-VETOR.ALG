@@ -8,6 +8,7 @@ Var
    // Seção de Declarações das variáveis
    nome:vetor[1..20]de caractere
    telefone:vetor[1..20] de caractere
+   excluir:vetor[1..20] de caractere
    opcao, totalContato,i:inteiro
 
 Inicio
@@ -15,7 +16,8 @@ Inicio
    escreval ("##|menu|##")
    escreval ("1-add contato;")
    escreval ("2-exibir contato;")
-   escreval ("3-sair do app.")
+   escreval ("3-excluir contato")
+   escreval ("4-sair do app.")
    escreval ("escolha uma opcao:")
 
    leia (opcao)
@@ -24,12 +26,13 @@ Inicio
       se totalContato < 20 entao
          totalContato <- totalContato + 1
          escreva ("digite contato nome")
-         leia (nome[totalContatos])
+         leia (nome[totalContato])
          escreva ("digite o telefone")
-         leia (telefone[totalContatos])
+         leia (telefone[totalContato])
          escreval ("contato salvo")
       senao
          escreval("agenda cheia!")
+         
       fimse
       
       caso 2
@@ -39,13 +42,20 @@ Inicio
             escreval("==contatos=")
             i de 1 até totalContato faca
             escreval(i, "-nome:",nome [i],"telefone:",telefone[i])
-         fimpara
       fimse
+      caso 3
+      
+       se totalContato= 20 entao
+          totalConato <- totalContato - 1
+       escreval ("Qual Contato deseja excluir")
+        leia (excluir[totalContato])
+        senao
+        escreval("Contato não excluido")
 
-   caso 3
+        fimse
+   caso 4
    escreval ("saindo da agenda...")
    outrocaso
    escreval ("opção inválida!Tente novamente.")
    fimescolha
-   ate opcao = 3
 Fimalgoritmo
